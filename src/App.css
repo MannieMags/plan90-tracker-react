@@ -1,0 +1,479 @@
+/* ── BASE ───────────────────────────────────────────────── */
+:root {
+  --bg: #0f0f0f;
+  --surface: #1a1a2e;
+  --surface2: #16213e;
+  --accent: #e94560;
+  --accent2: #0f3460;
+  --green: #00c853;
+  --yellow: #ffd600;
+  --text: #eaeaea;
+  --muted: #888;
+  --border: #2a2a3e;
+  --radius: 12px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.app {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px 16px 60px;
+}
+
+/* ── HEADER ─────────────────────────────────────────────── */
+.header {
+  text-align: center;
+  padding: 30px 0 20px;
+}
+
+.header h1 {
+  font-size: 2.2rem;
+  color: var(--accent);
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  color: var(--muted);
+  font-size: 1rem;
+  margin-top: 4px;
+}
+
+/* ── OVERALL PROGRESS BAR ───────────────────────────────── */
+.overall-bar {
+  margin-bottom: 20px;
+}
+
+.bar-label {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.bar-track {
+  height: 10px;
+  background: var(--border);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent2), var(--accent));
+  border-radius: 5px;
+  transition: width 0.4s ease;
+}
+
+/* ── DAY NAVIGATION ─────────────────────────────────────── */
+.day-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  margin-bottom: 16px;
+}
+
+.day-nav button {
+  background: var(--accent2);
+  color: var(--text);
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.day-nav button:hover:not(:disabled) {
+  background: var(--accent);
+}
+
+.day-nav button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.nav-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav-day-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.nav-date {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* ── PHASE BANNER ───────────────────────────────────────── */
+.phase-banner {
+  padding: 12px 16px;
+  border-radius: var(--radius);
+  margin-bottom: 16px;
+  font-size: 0.95rem;
+  border-left: 4px solid;
+}
+
+.phase-1 { background: #1b2a1b; border-color: var(--green); }
+.phase-2 { background: #2a2a1b; border-color: var(--yellow); }
+.phase-3 { background: #2a1b1b; border-color: var(--accent); }
+
+/* ── WORKOUT CARD ───────────────────────────────────────── */
+.workout-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.workout-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 6px;
+}
+
+.workout-card p {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.type-push h2 { color: #ff6b6b; }
+.type-pull h2 { color: #4ecdc4; }
+.type-recovery h2 { color: var(--yellow); }
+.type-rest h2 { color: var(--muted); }
+
+/* ── GOALS CARD ─────────────────────────────────────────── */
+.goals-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.goals-card h2 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  color: var(--yellow);
+}
+
+.goal-display p {
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+.goal-display em {
+  color: var(--muted);
+}
+
+.goal-tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-right: 8px;
+  letter-spacing: 0.5px;
+}
+
+.goal-tag.job { background: #0f3460; color: #7ec8e3; }
+.goal-tag.fit { background: #1b3a1b; color: #81c784; }
+.goal-tag.hab { background: #3a1b3a; color: #ce93d8; }
+
+.goal-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.goal-editor label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.goal-editor input {
+  margin-top: 4px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.goal-editor input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+/* ── BUTTONS ────────────────────────────────────────────── */
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 4px;
+  transition: opacity 0.2s;
+}
+
+.btn-primary:hover { opacity: 0.85; }
+
+.btn-outline {
+  background: transparent;
+  color: var(--accent);
+  border: 2px solid var(--accent);
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-outline:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* ── SCHEDULE CARD (THE DAY-BY-DAY CHECKLIST) ───────────── */
+.schedule-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.schedule-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.schedule-header h2 {
+  font-size: 1.2rem;
+}
+
+.day-progress {
+  font-size: 0.9rem;
+  color: var(--green);
+  font-weight: 600;
+}
+
+.day-bar-track {
+  height: 6px;
+  background: var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.day-bar-fill {
+  height: 100%;
+  background: var(--green);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.schedule-list {
+  list-style: none;
+}
+
+.schedule-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s;
+  border-bottom: 1px solid var(--border);
+}
+
+.schedule-list li:last-child {
+  border-bottom: none;
+}
+
+.schedule-list li:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.schedule-list li.done {
+  opacity: 0.5;
+}
+
+.schedule-list li.done .item-label {
+  text-decoration: line-through;
+}
+
+.check-icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.item-time {
+  font-size: 0.8rem;
+  color: var(--accent);
+  font-weight: 700;
+  min-width: 110px;
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+.item-label {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* ── JOURNAL CARD ───────────────────────────────────────── */
+.journal-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.journal-card h2 {
+  font-size: 1.2rem;
+  margin-bottom: 4px;
+}
+
+.journal-prompt {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.journal-card textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.95rem;
+  resize: vertical;
+  min-height: 80px;
+}
+
+.journal-card textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+/* ── MINI CALENDAR ──────────────────────────────────────── */
+.mini-calendar {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.mini-calendar h2 {
+  font-size: 1.2rem;
+  margin-bottom: 14px;
+}
+
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(15, 1fr);
+  gap: 4px;
+}
+
+.cal-day {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 600;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--bg);
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.cal-day:hover {
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+.cal-day.current {
+  border-color: var(--accent);
+  color: var(--accent);
+  font-weight: 800;
+  box-shadow: 0 0 8px rgba(233, 69, 96, 0.4);
+}
+
+.cal-day.complete {
+  background: var(--green);
+  color: #000;
+  border-color: var(--green);
+}
+
+.cal-day.partial {
+  background: #2a2a1b;
+  color: var(--yellow);
+  border-color: var(--yellow);
+}
+
+/* ── FOOTER ─────────────────────────────────────────────── */
+.footer {
+  text-align: center;
+  padding: 24px 0;
+  border-top: 1px solid var(--border);
+  margin-top: 10px;
+}
+
+.footer p {
+  font-style: italic;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.footer-end {
+  margin-top: 6px;
+  font-size: 0.8rem;
+  font-style: normal;
+}
+
+/* ── RESPONSIVE ─────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .header h1 { font-size: 1.5rem; }
+  .day-nav { flex-direction: column; gap: 10px; }
+  .day-nav button { width: 100%; }
+  .cal-grid { grid-template-columns: repeat(10, 1fr); }
+  .item-time { min-width: 80px; font-size: 0.7rem; }
+  .schedule-list li { gap: 8px; padding: 10px 6px; }
+}
