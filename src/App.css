@@ -448,6 +448,387 @@ body {
   border-color: var(--yellow);
 }
 
+/* ── STATS DASHBOARD ─────────────────────────────────────── */
+.stats-dashboard {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat-number {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.stat-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--muted);
+}
+
+/* ── PHASE PROGRESS CARD ────────────────────────────────── */
+.phase-progress-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin-bottom: 16px;
+}
+
+.phase-progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+  color: var(--muted);
+}
+
+.phase-fill-1 { background: linear-gradient(90deg, #1b5e20, var(--green)); }
+.phase-fill-2 { background: linear-gradient(90deg, #f57f17, var(--yellow)); }
+.phase-fill-3 { background: linear-gradient(90deg, #b71c1c, var(--accent)); }
+
+/* ── MILESTONE BANNER ───────────────────────────────────── */
+.milestone-banner {
+  background: linear-gradient(135deg, #1a1a2e 0%, #2a1a2e 100%);
+  border: 2px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  animation: milestonePulse 2s ease-in-out infinite;
+}
+
+@keyframes milestonePulse {
+  0%, 100% { box-shadow: 0 0 10px rgba(233, 69, 96, 0.2); }
+  50% { box-shadow: 0 0 25px rgba(233, 69, 96, 0.5); }
+}
+
+.milestone-icon {
+  background: var(--accent);
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.75rem;
+  padding: 6px 12px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.milestone-msg {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* ── ENERGY CARD ────────────────────────────────────────── */
+.energy-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.energy-card h2 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+}
+
+.energy-row {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.energy-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 12px 14px;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg);
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.2s;
+  flex: 1;
+  max-width: 100px;
+}
+
+.energy-btn:hover {
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+.energy-btn.active {
+  border-color: var(--accent);
+  background: rgba(233, 69, 96, 0.15);
+  color: var(--accent);
+}
+
+.energy-num {
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+
+.energy-lbl {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.energy-warning {
+  margin-top: 12px;
+  padding: 10px 14px;
+  background: rgba(255, 214, 0, 0.1);
+  border: 1px solid var(--yellow);
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: var(--yellow);
+}
+
+/* ── WIN CARD ───────────────────────────────────────────── */
+.win-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.win-card h2 {
+  font-size: 1.2rem;
+  margin-bottom: 4px;
+}
+
+.win-prompt {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.win-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+.win-input:focus {
+  outline: none;
+  border-color: var(--green);
+  box-shadow: 0 0 0 2px rgba(0, 200, 83, 0.15);
+}
+
+/* ── JOURNAL STRUCTURED FIELDS ──────────────────────────── */
+.journal-field {
+  margin-bottom: 12px;
+}
+
+.journal-field label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+/* ── WEIGHT CARD ────────────────────────────────────────── */
+.weight-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.weight-card h2 {
+  font-size: 1.2rem;
+  margin-bottom: 4px;
+}
+
+.weight-prompt {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.weight-input-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.weight-input {
+  width: 120px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.weight-input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.weight-unit {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.weight-history h3 {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.weight-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-height: 160px;
+  overflow-y: auto;
+}
+
+.weight-entry {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 10px;
+  background: var(--bg);
+  border-radius: 6px;
+  font-size: 0.85rem;
+}
+
+.weight-val {
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* ── REVIEW CARD (Sunday) ───────────────────────────────── */
+.review-card {
+  background: var(--surface);
+  border: 2px solid var(--yellow);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.review-card h2 {
+  font-size: 1.2rem;
+  color: var(--yellow);
+  margin-bottom: 4px;
+}
+
+.review-prompt {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.review-questions {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* ── GOAL ROW (clickable) ───────────────────────────────── */
+.goal-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.goal-row:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.goal-check {
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+/* ── DAY COMPLETE MESSAGE ───────────────────────────────── */
+.day-complete-msg {
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  background: rgba(0, 200, 83, 0.1);
+  border: 1px solid var(--green);
+  border-radius: 8px;
+  color: var(--green);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+/* ── CALENDAR LEGEND ────────────────────────────────────── */
+.cal-legend {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 12px;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.cal-legend span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.legend-box {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  border: 1px solid var(--border);
+}
+
+.legend-box.complete {
+  background: var(--green);
+  border-color: var(--green);
+}
+
+.legend-box.partial {
+  background: #2a2a1b;
+  border-color: var(--yellow);
+}
+
+.legend-box.current-legend {
+  border-color: var(--accent);
+  box-shadow: 0 0 4px rgba(233, 69, 96, 0.4);
+}
+
 /* ── FOOTER ─────────────────────────────────────────────── */
 .footer {
   text-align: center;
@@ -471,9 +852,14 @@ body {
 /* ── RESPONSIVE ─────────────────────────────────────────── */
 @media (max-width: 600px) {
   .header h1 { font-size: 1.5rem; }
+  .stats-dashboard { grid-template-columns: repeat(2, 1fr); }
+  .stat-number { font-size: 1.2rem; }
   .day-nav { flex-direction: column; gap: 10px; }
   .day-nav button { width: 100%; }
   .cal-grid { grid-template-columns: repeat(10, 1fr); }
   .item-time { min-width: 80px; font-size: 0.7rem; }
   .schedule-list li { gap: 8px; padding: 10px 6px; }
+  .energy-btn { padding: 10px 8px; }
+  .energy-num { font-size: 1rem; }
+  .milestone-banner { flex-direction: column; text-align: center; gap: 10px; }
 }
